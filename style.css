@@ -1,0 +1,654 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    scroll-behavior: smooth;
+}
+
+body{
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/***************Header - Barre de navigation ******************/
+
+nav{
+    width:100%;
+    height:50px; 
+    position:relative;
+    background-color: #333;
+    z-index: 1;
+}
+
+.nav-menu{ /*ul*/
+    width: 100%;
+    height:100%;
+    text-align: center; 
+}
+
+.nav-item{ /*li*/
+    display:inline-block;
+    line-height: 50px;
+    margin:0 10px; 
+    font-size:18px;
+}
+
+.nav-item.active{
+    display:block;
+}
+
+.nav-item a{ /* li a */
+    color:white;
+    font-size: 1.5rem;
+}
+
+.btn-toggle{ /* container de l'icone */
+    position:absolute;
+    width: 40px;
+    height:40px;
+    left:12px;
+    top:12px;
+    cursor:pointer;
+    display:none;
+}
+
+.btn-toggle i{ /* l'icone */
+    color:white;
+    position:absolute;
+    font-size:25px;
+}
+
+
+
+@media screen and (max-width:700px) {
+    .btn-toggle{ /* je le fais apparaître */
+        display:block;
+    }
+
+    .nav-item{ /* je passe les li en block */
+        display:block;
+        background-color: #333;
+        margin: 0; /* j'enleve leurs marges */
+    }
+
+    .nav-menu{
+        position:relative;
+        top:50px;
+        display:none; /* je cache le ul */
+    }
+
+    nav{
+        border-bottom:1px solid white;
+    }
+
+    .nav-menu.active{ /* quand aura la classe active, cela ouvrira le menu*/
+        display:block;
+    }
+
+    
+}
+
+
+/******************Header - Image et texte ************************/
+
+.accueil{
+    width: 100%;
+    height:600px;
+    background: url('ressources/landing_page/one.jpg') center / cover;
+    position: relative;
+}
+
+.accueil .accueil-contenu{
+    width: 50%;
+    height:300px;
+    position : absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.accueil .accueil-contenu h1{
+    text-align: center;
+    font-size: 3rem;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    text-transform: uppercase;
+    color:white;
+    animation: apparition linear forwards 1.4s;
+}
+
+.accueil .accueil-contenu h3{
+    text-align: center;
+    font-size: 2.3rem;
+    font-style: italic;
+    color:white;
+    padding: 20px;
+    opacity:0;
+    animation: slide ease-in-out forwards 1.4s;
+    animation-delay: 1.4s;
+}
+
+.lettre-sous-titre{
+    font-size: 3rem;
+    color:crimson;
+}
+
+@keyframes apparition {
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes slide {
+    0%{
+        transform: translateX(-1200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width:850px){
+    .accueil .accueil-contenu h1{
+        font-size: 2.6rem;
+        padding: 15px;
+        animation: none;
+    }
+    
+    .accueil .accueil-contenu h3{
+        font-size: 1.7rem;
+        padding: 15px;
+        animation: none;
+        opacity: 1;
+    }
+}
+
+
+/*********************Presentation*******************/
+
+.section-presentation{
+    padding-bottom: 20px;
+    border-bottom: 1px dashed black;;
+}
+
+.container{
+    max-width: 80%;
+    min-height:600px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.container h3{
+    text-align: center;
+    font-size: 2.3rem;
+    font-style: italic;
+    padding: 20px;
+}
+
+.container h3::first-letter{
+    color:crimson;
+    font-size: 4rem;
+}
+
+.container-presentation{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.container-presentation .presentation-texte{
+    padding: 15px 25px;
+}
+
+.container-presentation .presentation-texte h4{
+    font-size: 1.8rem;
+    text-align: center;
+    padding:15px;
+}
+
+.container-presentation .presentation-texte p{
+    font-size: 1.4rem;
+    text-align: justify;
+    padding:15px;
+}
+
+.container-presentation .presentation-img{
+    position: relative;
+    padding: 15px 0;
+}
+
+.container-presentation .presentation-img img{
+    width: 95%;
+    height:100%;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .container-presentation{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .container-presentation .presentation-texte{
+        padding: 10px 15px;
+    }
+    
+    .container-presentation .presentation-texte h3{
+        font-size: 1.2rem;
+        padding:10px;
+    }
+
+    .container-presentation .presentation-texte p{
+        font-size: 1.2rem;
+        padding:10px;
+    }
+}
+
+/**************Bannière ********************/
+.section-banniere{
+    padding: 25px 0;
+    border-bottom: 1px dashed black;
+}
+
+.bannière{
+    max-width: 100%;
+    height: 400px;
+    background: url('ressources/landing_page/two.jpg') center / cover;
+    background-attachment: fixed;
+}
+
+@media screen and (max-width: 800px) {
+    .bannière{
+        height:250px;
+    }
+}
+
+/************Oeuvres **********************/
+
+.oeuvres{
+    padding-bottom: 20px;
+    border:1px dashed black;
+}
+
+.oeuvres h3{
+    text-align: center;
+    font-size: 2.3rem;
+    font-style: italic;
+    padding: 40px;
+}
+
+.oeuvres h3::first-letter{
+    color:crimson;
+    font-size: 4rem;
+}
+
+.container-oeuvre{
+    width: 90%;
+    min-height: 800px;
+    margin: 40px auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.contenu-oeuvre-1{
+    width: 100%;
+    height:auto;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    background: url('ressources/tatoo/tatoo4.jpg') center / cover;
+    box-shadow: 3px 4px 12px black;
+}
+
+.contenu-oeuvre-2{
+    width: 100%;
+    height:auto;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 3;
+    background: url('ressources/tatoo/tatoo6.jpg') center / cover;
+    box-shadow: 3px 4px 12px black;
+}
+
+.contenu-oeuvre-3{
+    width: 100%;
+    height:auto;
+    grid-column: 3 / span 1;
+    background: url('ressources/tatoo/tatoo3.jpg') center / cover;
+    box-shadow: 3px 4px 12px black;
+}
+
+.contenu-oeuvre-4{
+    width: 100%;
+    height:auto;
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    background: url('ressources/tatoo/tatoo7.jpg') center / cover;
+    box-shadow: 3px 4px 12px black;
+}
+
+.contenu-oeuvre-5{
+    width: 100%;
+    height:auto;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 2;
+    background: url('ressources/tatoo/tatoo2.jpg') center / cover;
+    box-shadow: 3px 4px 12px black;
+} 
+
+.contenu-oeuvre-6{
+    width: 100%;
+    height:auto;
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 3;
+    background: url('ressources/tatoo/tatoo1.jpg') center / cover;
+    box-shadow: 3px 4px 12px black;
+} 
+
+@media screen and (max-width: 1100px){
+    .container-oeuvre{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3,600px);
+        gap: 10px;
+    }
+
+    .contenu-oeuvre-1{
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        background-color: blue;
+    }
+    
+    .contenu-oeuvre-2{
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        background-color: brown;
+    }
+    
+    .contenu-oeuvre-3{
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        background-color: cadetblue;
+    }
+    
+    .contenu-oeuvre-4{
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        background-color: chartreuse;
+    }
+    
+    .contenu-oeuvre-5{
+        grid-column: 1 / span 1;
+        grid-row: 3 / span 1;
+        background-color: cornflowerblue;
+    } 
+    
+    .contenu-oeuvre-6{
+        grid-column: 2 / span 1;
+        grid-row: 3 / span 1;
+        background-color: aqua;
+    } 
+}
+
+@media screen and (max-width: 800px){
+
+    .oeuvres h3{
+        font-size: 1.7rem;
+        padding: 10px;
+    }
+    
+    .container-oeuvre{
+        grid-auto-columns: repeat(2,1fr);
+        grid-template-rows: repeat(6,600px);
+        gap: 10px;
+    }
+
+    .contenu-oeuvre-1{
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+        background-color: blue;
+    }
+    
+    .contenu-oeuvre-2{
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 1;
+        background-color: brown;
+    }
+    
+    .contenu-oeuvre-3{
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 1;
+        background-color: cadetblue;
+    }
+    
+    .contenu-oeuvre-4{
+        grid-column: 1 / span 2;
+        grid-row: 4 / span 1;
+        background-color: chartreuse;
+    }
+    
+    .contenu-oeuvre-5{
+        grid-column: 1 / span 2;
+        grid-row: 5 / span 1;
+        background-color: cornflowerblue;
+    } 
+    
+    .contenu-oeuvre-6{
+        grid-column: 1 / span 2;
+        grid-row: 6 / span 1;
+        background-color: aqua;
+    } 
+}
+
+/************Salon*******************/
+
+.section-salon{
+    padding-bottom: 20px;
+    border:1px dashed black;
+}
+
+.section-salon h3{
+    text-align: center;
+    font-size: 2.3rem;
+    font-style: italic;
+    padding: 40px;
+    margin: 25px 0;
+}
+
+.section-salon h3::first-letter{
+    color:crimson;
+    font-size: 4rem;
+}
+
+
+.container-salon{
+    max-width: 95%;
+    min-height:600px;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container-salon .boite1{
+    width: 20%;
+    height:600px;
+    background: url('ressources/salon/salon5.jpg') center / cover;
+}
+
+.container-salon .boite2{
+    width: 20%;
+    height:600px;
+    background :url('ressources/salon/salon1.jpg') center / cover;
+}
+
+.container-salon .boite3{
+    width: 20%;
+    height:600px;
+    background : url('ressources/salon/salon2.jpg') center / cover;
+}
+
+.container-salon .boite4{
+    width: 20%;
+    height:600px;
+    background :url('ressources/salon/salon4.jpg') center / cover;
+}
+
+.container-salon .boite1:hover{
+    width:90%;
+    transition: 0.5s linear;
+}
+.container-salon .boite2:hover{
+    width:90%;
+    transition: 0.5s linear;
+}
+.container-salon .boite3:hover{
+    width:90%;
+    transition: 0.5s linear;
+}
+.container-salon .boite4:hover{
+    width:90%;
+    transition: 0.5s linear;
+}
+
+@media screen and (max-width:1000px){
+
+    .section-salon h3{
+        font-size: 1.7rem;
+        padding: 10px;
+    }
+
+    .container-salon{
+        flex-direction: column;
+    }
+
+    .container-salon .boite1{
+        width: 90%;
+        height:600px;
+        pointer-events: none;
+    }
+    
+    .container-salon .boite2{
+        width: 90%;
+        height:600px;
+        pointer-events: none;
+    }
+    
+    .container-salon .boite3{
+        width: 90%;
+        height:600px;
+        pointer-events: none;
+    }
+    
+    .container-salon .boite4{
+        width: 90%;
+        height:600px;
+        pointer-events: none;
+    }
+}
+
+
+
+
+
+
+/****************Contact***************/
+
+
+
+.contact h4{
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 40px 0px
+}
+
+.contact h4::first-letter{
+    text-transform: uppercase;
+    color: crimson;
+}
+
+.formulaire{
+    width: 90%;
+    min-width: 320px;
+    height:auto;
+    margin:0 auto;
+    padding:15px;
+    font-family: inherit;
+}
+
+label,input,textarea{
+    display:block;
+    padding:15px 0px;
+    width: 100%;
+    outline:none;
+    border:none;
+}
+
+label{
+    font-size:1.1rem;
+}
+
+input{
+    border-bottom:1px solid black;
+}
+
+textarea{
+    border:1px solid black;
+    margin: 15px 0px;
+    height:200px;
+    width: 100%;
+    resize: none;
+}
+
+.contact .btn-contact{
+    width: 40%;
+    padding:10px 15px;
+    font-size:1.2rem;
+    background-image: linear-gradient(to right, transparent 50%, #333 50% );
+    background-size: 200%;
+    border-radius: 8px;
+    border:1px solid black;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: background 0.4s linear;
+}
+
+.contact .btn-contact:hover{
+    background-position: 100%;
+    color:white;
+}
+
+@media screen and (max-width: 700px){
+    .contact .btn-contact{
+        width: 40%;
+        padding:10px 15px;
+        font-size:1rem;
+}
+}
+
+/*****************FOOTER******************/
+
+footer{
+    width: 100%;
+    height:50px;
+    background-color: #444;
+    text-align: center;
+}
+
+footer p {
+    line-height: 50px;
+    font-size: 1rem;
+    color: #fff;
+}
